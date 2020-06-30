@@ -1,0 +1,19 @@
+extends ./layout
+
+
+block content
+    .row
+        .col-md-6.col-md-offset-3(style='margin-top:75px;')         
+            h2.pageTitle Install Pidge App 
+        .col-md-6.col-md-offset-3
+            .panel.panel-default
+                .panel-heading Shopify Store Detail
+                .panel-body
+                    - if (typeof(error) !== 'undefined'){
+                        div.alert.alert-danger Invalid Url. Please enter a valid Shopify Store url.
+                    - }
+                    form(method='POST' action='/shopify')
+                        div.form-group
+                            label.col-sm-2.col-form-label(for='url') Url:
+                            input#url.form-control(type='text', placeholder='Enter your Shop url' name='url', style='width: 50%;')
+                        button.btn.btn-primary(type='submit') Install

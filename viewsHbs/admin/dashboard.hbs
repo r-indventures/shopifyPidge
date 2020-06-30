@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Admin Login </title>
+</head>
+
+<body class="align">
+
+  <div class="grid">
+<div class="body">
+<div class="container_code">
+<h1>Hi Admin! {{name}} </h1> <a href="/logout">logout</a>
+
+<table>
+
+<tr><th>Sr. No. </th><th> Client name </th><th>Shop name </th><th>Status  </th><th>Action  </th> </tr>
+{{#each value}}<form action="/update-client" method="POST">
+<tr><td>{{@index}}</td><td>{{ customer_name}}</td>  <td>{{ store_url}}</td> 
+<td>{{#if status}} Active {{else}} Inactive {{/if}}</td>
+<td>
+<input type="hidden" name="store_id" value="{{ store_id}}">
+<input type="hidden" name="store_url" value="{{ store_url}}">
+<input type="hidden" name="customer_name" value="{{ customer_name}}">
+<input type="hidden" name="customer_id" value="{{ id}}">
+{{#if status}}
+<input type="submit" value="Deactivate">
+<input type="hidden" name="status" value="0">
+{{else}}
+<input type="submit" value="Active">
+<input type="hidden" name="status" value="1">
+{{/if}}
+</td> </tr></form>
+ {{/each}}
+
+</table>
+</div>
+</div>
+</div>
+</body>
+</html>

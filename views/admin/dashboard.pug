@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+    .row
+        .col-md-12(style='margin-top:75px;')    
+            div.panel.panel-default
+                div.panel-heading
+                    h4 Client List
+                div.panel-body    
+                    table.table.table-striped
+                        thead
+                            tr
+                                th(scope='col') Client name
+                                th(scope='col') Shop name
+                                th(scope='col') Status
+                                th(scope='col') Action
+                        tbody
+                          each client in clients
+                            - var actionBtnTxt = (client.status) ? 'Inactive' : 'Active'
+                            - var status = (client.status) ? 0 : 1
+                            tr
+                                td=client.customer_name
+                                td=client.store_url
+                                td=(client.status) ? 'Active' : 'Inactive'
+                                td
+                                    form(method='POST' action='/update-client')
+                                        input(type='hidden',  name='store_id', value=client.store_id)
+                                        input(type='hidden', name='store_url', value=client.store_url)
+                                        input(type='hidden',  name='customer_name', value=client.customer_name)
+                                        input(type='hidden', name='customer_id', value=client.id)
+				
+                                        input(type='hidden', name='status', value=status)
+                                        button.btn.btn-primary(type='submit')=actionBtnTxt

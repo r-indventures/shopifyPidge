@@ -1,0 +1,37 @@
+<div class="body">
+<div class="container_code">
+<h1>Welcome {{shopname}} </h1>
+<form action="shopify" method="post" class="install_form">
+<input type="hidden" id="shopname" name="shopname" value="{{shopname}}">
+<input type="text" id="url" name="url" placeholder="Enter your Shop url">
+<input type="submit" value="Install">
+</form>  
+</div>
+</div>
+
+
+<style>
+.container_code {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: middle;
+    height: 100%;
+    max-width: 500px;
+    background: #0202;
+    padding: 120px 0px;
+}
+input#url {
+    width: 88%;
+    padding: 16px 4px;
+	margin-bottom: 12px;
+}
+input[type="submit"] {
+    background: #000;
+    color: #fff;
+    padding: 8px 52px;
+    border: 0px;
+    border-radius: 4px;
+    box-shadow: 2px 2px;
+}
+</style>

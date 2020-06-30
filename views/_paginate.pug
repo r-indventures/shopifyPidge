@@ -1,0 +1,15 @@
+if pages.pages
+    ul.pagination
+        if pages.currentPage > 1
+            li.previous
+                a(href=pageUrl+(pages.currentPage-1)+qryString).prev           
+                    |  Previous
+        each page in pages.pages
+            li(class=currentPage == page ? "active" : "")
+                a(href=pageUrl+page+qryString)=page
+
+        if pages.totalPages > pages.currentPage
+            - var nextPage = parseInt(pages.currentPage)+1
+            li.previous
+                a(href=pageUrl+nextPage+qryString).prev           
+                    |  Next               

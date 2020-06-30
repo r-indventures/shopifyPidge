@@ -1,0 +1,22 @@
+extends ../layout
+
+
+block content
+    .row
+        .col-md-6.col-md-offset-3(style='margin-top:75px;') 
+            h2.pageTitle Pidge Dasboard Login
+        .col-md-6.col-md-offset-3
+            .panel.panel-default
+                .panel-heading User Details
+                .panel-body
+                    - if (typeof(error) !== 'undefined'){
+                        div.alert.alert-danger Invalid username or password. Please try again.
+                    - }
+                    form(method='POST' action='/admin/dashboard')
+                        div.form-group
+                            label(for='Username') Username:
+                            input#login__username.form-control(type='text', placeholder='Username' name='username', style='width: 50%;')
+                        div.form-group
+                            label(for='Password') Password:
+                            input#login__password.form-control(type='password', placeholder='Password' name='password', style='width: 50%;')
+                        button.btn.btn-primary(type='submit') Sign In
