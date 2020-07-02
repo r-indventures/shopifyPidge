@@ -155,7 +155,7 @@ app.get('/shopify/callback', (req, res) => {
 				const obj = JSON.parse(shopResponse);
 			
 				var shopname = obj.shop.name;
-				var shopurl = obj.shop.domain;
+				var shopurl = obj.shop.myshopify_domain;
 				var datetime = new Date();
 				var store_id= obj.shop.id;
 				req.session.appInstalled = true;
