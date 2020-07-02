@@ -534,10 +534,11 @@ app.post('/update-client', function(req, res, next) {
 	var customer_id = parseInt(req.body.customer_id);
 	var updateClientUrl = PIDGE_API+"/shopify/shopify-client/"+customer_id;
 	var updateClientInfo = {
-		"store_id": store_id,
-		"store_url": store_url,
+		// "store_id": store_id,
+		// "store_url": store_url,
 		"customer_name":customer_name,
 		"status":new_status
+		
 	};
 	request({ 
 		url: updateClientUrl, 
